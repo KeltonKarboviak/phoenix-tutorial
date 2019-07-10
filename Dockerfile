@@ -12,7 +12,22 @@ FROM node
 ##############################
 FROM elixir:1.9
 
+EXPOSE 4000
+
 WORKDIR /app
+
+# Setup for node + yarn
+RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh \
+    && bash nodesource_setup.sh \
+    && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt update \
+    && apt install -y \
+        inotify-tools \
+        postgresql-client \
+        nodejs \
+        yarn
 
 COPY mix* ./
 
@@ -20,9 +35,10 @@ COPY mix* ./
 # without a shell prompt
 RUN mix local.hex --force \
     && mix local.rebar --force \
+    && mix archive.install hex phx_new 1.4.9 --force \
     && mix deps.get \
     && mix deps.compile
 
 COPY . .
 
-CMD [ "mix", "phx.server" ]
+CMD [ "./run.sh" ]
