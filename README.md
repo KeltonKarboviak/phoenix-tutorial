@@ -8,6 +8,10 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
+## Credit
+
+The containerized Elixir/Phoenix template used by this project was found [here](https://github.com/dogweather/phoenix-docker-compose).
+
 ## Learn more
 
 * Official website: <http://www.phoenixframework.org/>
