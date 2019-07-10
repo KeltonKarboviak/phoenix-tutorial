@@ -2,6 +2,8 @@
 {
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "web",
-	"workspaceFolder": "/",
-	"extensions": []
+	"workspaceFolder": "/app",
+	"extensions": [
+		"jakebecker.elixir-ls"
+	]
 }
