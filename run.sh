@@ -38,4 +38,4 @@ mix test
 
 # Start the phoenix web server
 echo "\n> Launching Phoenix web server..."
-mix phx.server
+exec mix phx.server
