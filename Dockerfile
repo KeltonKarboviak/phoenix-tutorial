@@ -25,8 +25,8 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh \
 RUN apt update \
     && apt install -y \
         inotify-tools \
-        postgresql-client \
         nodejs \
+        postgresql-client \
         yarn
 
 COPY mix* ./
