@@ -21,8 +21,9 @@ defmodule TutorialAppWeb.Router do
     get "/hello/:messenger", HelloController, :show
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", TutorialAppWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", TutorialAppWeb do
+    pipe_through :api
+  end
+
+  forward "/jobs", BackgroundJob.Plug, name: "Hello Phoenix"
 end
