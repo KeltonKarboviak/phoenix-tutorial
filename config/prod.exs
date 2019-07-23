@@ -12,6 +12,15 @@ use Mix.Config
 config :tutorial_app, TutorialAppWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
+  https: [
+    port: 443,
+    otp_app: :tutorial_app,
+    keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
+    certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
+    # OPTIONAL Key for intermediate certificates:
+    # cacertfile: System.get_env("INTERMEDIATE_CERTFILE_PATH")
+  ],
+  force_ssl: [hsts: true]
 
 # Do not print debug messages in production
 config :logger, level: :info
