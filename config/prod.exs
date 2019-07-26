@@ -20,7 +20,7 @@ config :tutorial_app, TutorialAppWeb.Endpoint,
     # OPTIONAL Key for intermediate certificates:
     # cacertfile: System.get_env("INTERMEDIATE_CERTFILE_PATH")
   ],
-  force_ssl: [hsts: true]
+  force_ssl: [rewrite_on: [:x_forwarded_proto], host: nil, hsts: true]
 
 # Do not print debug messages in production
 config :logger, level: :info
