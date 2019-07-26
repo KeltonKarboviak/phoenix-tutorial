@@ -1,6 +1,8 @@
 .elixir_ls/
 data/
 
+*.pem
+
 # The directory Mix will write compiled artifacts to.
 /_build/
 
