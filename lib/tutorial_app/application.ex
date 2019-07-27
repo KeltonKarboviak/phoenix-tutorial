@@ -11,7 +11,8 @@ defmodule TutorialApp.Application do
       # Start the Ecto repository
       TutorialApp.Repo,
       # Start the endpoint when the application starts
-      TutorialAppWeb.Endpoint
+      TutorialAppWeb.Endpoint,
+      TutorialAppWeb.Presence,
       # Starts a worker by calling: TutorialApp.Worker.start_link(arg)
       # {TutorialApp.Worker, arg},
     ]

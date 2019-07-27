@@ -15,8 +15,8 @@ defmodule TutorialAppWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(%{"token" => "undefined"}, socket, _connect_info) do
-    {:ok, socket}
+  def connect(%{"token" => "", "user_id" => user_id}, socket, _connect_info) do
+    {:ok, assign(socket, :user_id, user_id)}
   end
 
   def connect(%{"token" => token}, socket, _connect_info) do
