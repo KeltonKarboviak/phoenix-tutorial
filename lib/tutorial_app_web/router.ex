@@ -29,6 +29,8 @@ defmodule TutorialAppWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/sessions", SessionController, only: [:new, :create, :delete],
+                                              singleton: true
 
     get "/test", PageController, :test
     get "/hello", HelloController, :index
