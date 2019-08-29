@@ -49,6 +49,12 @@ defmodule TutorialAppWeb.Router do
     get "/hello/:messenger", HelloController, :show
   end
 
+  scope "/cms", TutorialAppWeb.CMS, as: :cms do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/pages", PageController
+  end
+
   scope "/api", TutorialAppWeb do
     pipe_through :api
   end
